@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
-
+cosnt cors = require('cors')
 const PORT = 8000;
+
+app.use(cors())
 
 const actors = {
   'alicia keys': {
@@ -34,6 +36,6 @@ app.get('/api/:actorName', (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
